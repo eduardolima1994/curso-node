@@ -13,8 +13,8 @@ app.get('/projects', (request, response)=>{
 })
 
 app.post('/projects', (request, response)=>{
-  const body = request.body
-  console.log(body)
+  const { name, age } = request.body
+  console.log(name, age)
   return response.json([
     'Projeto 1',
     'Projeto 2',
@@ -22,9 +22,10 @@ app.post('/projects', (request, response)=>{
   ])
 })
 
-app.put('/projects/:id/:name', (request, response)=>{
-  const { id, name } = request.params
-  console.log(id, name)
+app.put('/projects/:id', (request, response)=>{
+  const { id } = request.params
+  const { name, age } = request.body
+  console.log(id, name, age)
   return response.json([
     'Projeto 4',
     'Projeto 2',

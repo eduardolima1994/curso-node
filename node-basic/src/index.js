@@ -30,7 +30,7 @@ app.put('/projects/:id', (request, response)=>{
     return response.status(404).json({ error: 'Project not found' })
   }
   
-  if (!name && !owner) {
+  if (!name || !owner) {
     return response.status(400).json({ error: 'Name nd owner are required' })
   }
 

@@ -5,6 +5,15 @@ app.use(express.json())
 
 const projects = []
 
+function logRoutes(request, response, next) {
+  const { method, url} = request
+  const route = `[${method.toUpperCase()}] ${url}`
+  console.log(route)
+  return next()
+}
+
+app.use(logRoutes)
+
 app.get('/projects', (request, response)=>{
   return response.json(projects)
 })

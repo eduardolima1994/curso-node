@@ -54,9 +54,9 @@ app.delete('/projects/:id', (request, response)=>{
     return response.status(404).json({ error: 'Project not found' })
   }
 
-  const project = projects.splice(id, 1)
+  projects.splice(projectIndex, 1)
 
-  return response.json(project)
+  return response.status(204).send()
 })
 
 app.listen(3333, () => {
